@@ -117,6 +117,17 @@ const FeatureAnimalPage = () => {
             />
           </div>
         </div>
+
+        {/* Description */}
+        <InputSection
+          id="description"
+          label="Description"
+          placeholder="Add a short bio about the animal!"
+          errors={errors}
+          register={register}
+          required
+          textarea
+        />
       </div>
     </Container>
   );

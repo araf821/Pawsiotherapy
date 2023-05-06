@@ -24,23 +24,27 @@ const Input: React.FC<InputProps> = ({
   max,
 }) => {
   if (textarea) {
-    <div className="relative w-full">
-      <textarea
-        id={id}
-        {...register(id, { required })}
-        placeholder={placeholder}
-        rows={30}
-        className={`
-        w-full
-        rounded-md border-2
-        bg-white
-        p-4 font-light outline-none
-        transition
-        ${errors[id] ? "border-red-700" : "border-neutral-300"}
-        ${errors[id] ? "focus:border-red-700" : "focus:border-black"}
-        `}
-      />
-    </div>;
+    return (
+      <div className="relative w-full">
+        <textarea
+          id={id}
+          {...register(id, { required })}
+          placeholder={placeholder}
+          rows={5}
+          required={required}
+          className={`
+          w-full
+      resize-none
+      rounded-md border-2
+      bg-white
+      p-4 font-light outline-none
+      transition
+      ${errors[id] ? "border-red-700" : "border-neutral-300"}
+      ${errors[id] ? "focus:border-red-700" : "focus:border-black"}
+      `}
+        />
+      </div>
+    );
   }
 
   return (

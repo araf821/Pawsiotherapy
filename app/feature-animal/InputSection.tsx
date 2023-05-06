@@ -10,6 +10,7 @@ interface InputSectionProps {
   required?: boolean;
   min?: string;
   max?: string;
+  textarea?: boolean;
 }
 
 const InputSection: React.FC<InputSectionProps> = ({
@@ -22,12 +23,11 @@ const InputSection: React.FC<InputSectionProps> = ({
   required,
   min,
   max,
+  textarea,
 }) => {
   return (
     <div className="flex flex-col justify-between gap-1 sm:flex-row">
-      <div className="flex items-center">
-        <span className="text-md text-black">{label}</span>
-      </div>
+      <span className="text-md text-black">{label}</span>
       <div className="relative w-full sm:w-[450px] md:w-[550px] lg:w-[700px] xl:w-[900px]">
         {type === "number" ? (
           <Input2
@@ -38,7 +38,8 @@ const InputSection: React.FC<InputSectionProps> = ({
             max={max}
             errors={errors}
             register={register}
-            required
+            required={required}
+            textarea={textarea}
           />
         ) : (
           <Input2
@@ -47,7 +48,8 @@ const InputSection: React.FC<InputSectionProps> = ({
             placeholder={placeholder}
             errors={errors}
             register={register}
-            required
+            required={required}
+            textarea={textarea}
           />
         )}
       </div>
