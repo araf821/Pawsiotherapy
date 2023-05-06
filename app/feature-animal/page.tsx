@@ -1,14 +1,20 @@
 "use client";
 
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Container from "../components/Container";
 import ImageUpload from "../components/inputs/ImageUpload";
 import InputSection from "./InputSection";
 import HeadlessSelect from "./HeadlessSelect";
 import { useState } from "react";
+import Button from "../components/Button";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const FeatureAnimalPage = () => {
   const [selectedPersonality, setSelectedPersonality] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const {
     register,
@@ -38,6 +44,10 @@ const FeatureAnimalPage = () => {
       shouldDirty: true,
       shouldTouch: true,
     });
+  };
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
   };
 
   return (
@@ -118,6 +128,16 @@ const FeatureAnimalPage = () => {
           </div>
         </div>
 
+        {/* Location */}
+        <InputSection
+          id="location"
+          label="Address"
+          placeholder="Where is this little buddy located?"
+          errors={errors}
+          register={register}
+          required
+        />
+
         {/* Description */}
         <InputSection
           id="description"
@@ -128,6 +148,11 @@ const FeatureAnimalPage = () => {
           required
           textarea
         />
+
+        <hr />
+        <div className="mx-auto mb-20 flex w-full max-w-[500px] items-center justify-center">
+          <Button outline label="Idk" onClick={handleSubmit(onSubmit)} />
+        </div>
       </div>
     </Container>
   );
