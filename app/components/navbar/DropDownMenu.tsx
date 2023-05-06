@@ -1,10 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Avatar from "../Avatar";
+import MenuItem from "./MenuItem";
+import { useRouter } from "next/navigation";
 
 const DropDownMenu = () => {
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<any>(null);
   const menuBtnRef = useRef<any>(null);
@@ -31,12 +35,12 @@ const DropDownMenu = () => {
         ref={menuBtnRef}
         onClick={toggleDropdown}
         className="flex cursor-pointer flex-row items-center gap-3
-      rounded-full border-[1px] border-neutral-200 p-4 transition hover:shadow-lg
-      md:px-2 md:py-1"
+      rounded-lg border-[2px] border-yellow-400 p-2 transition hover:shadow-lg
+      md:px-3"
       >
-        <AiOutlineMenu size={24} className="text-yellow-400" />
+        <GiHamburgerMenu size={28} className="text-yellow-400 " />
         <div className="hidden md:block">
-          <Avatar />
+          <Avatar src={null} />
         </div>
       </div>
 
@@ -55,7 +59,63 @@ const DropDownMenu = () => {
             ${isOpen ? "translate-y-0" : "-translate-y-56"}
             ${isOpen ? "opacity-100" : "opacity-0"}
           `}
-      ></div>
+      >
+        <div className="flex cursor-pointer flex-col">
+          <MenuItem
+            onClick={() => {
+              router.push(`/dashboard/${''}`);
+              toggleDropdown();
+            }}
+            label="Dashboard"
+          />
+          <hr />
+          <MenuItem
+            onClick={() => {
+              router.push("/find/animals");
+              toggleDropdown();
+            }}
+            label="View All Animals"
+          />
+          <MenuItem
+            onClick={() => {
+              router.push("/find/cats");
+              toggleDropdown();
+            }}
+            label="Find A Cat"
+          />
+          <MenuItem
+            onClick={() => {
+              router.push("/find/dogs");
+              toggleDropdown();
+            }}
+            label="Find A Dog"
+          />
+          <hr />
+          <MenuItem
+            onClick={() => {
+              router.push("/feature-animal");
+              toggleDropdown();
+            }}
+            label="Feature An Animal"
+          />
+          <MenuItem
+            onClick={() => {
+              router.push(`/listings/${''}`);
+              toggleDropdown();
+            }}
+            label="View Your Listings"
+          />
+          <MenuItem
+            onClick={() => {
+              router.push(`/sessions/${''}`);
+              toggleDropdown();
+            }}
+            label="View Your Sessions"
+          />
+          <hr />
+          <MenuItem onClick={() => {}} label="Sign Out" />
+        </div>
+      </div>
     </div>
   );
 };
