@@ -33,10 +33,11 @@ model Animal {
   species     String
   location    String
   breed       String?
-  age         Int?
+  age         String?
   gender      String?
   personality String?
   image       String?
+  description String?
   sessions    Session[] @relation("animal")
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt

@@ -9,9 +9,10 @@ import { useState } from "react";
 import Button from "../components/Button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 const FeatureAnimalPage = () => {
-  const [selectedPersonality, setSelectedPersonality] = useState("");
+  const [selectedPersonality, setSelectedPersonality] = useState({ name: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -48,6 +49,27 @@ const FeatureAnimalPage = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
+
+    if (selectedPersonality.name === "") {
+      setSelectedPersonality({ name: "Friendly" });
+    }
+
+    axios
+      .post("/api/animals", {
+        ...data,
+        personality: selectedPersonality.name,
+      })
+      .then(() => {
+        toast.success("Success!");
+        router.push("/");
+        reset();
+      })
+      .catch(() => {
+        toast.error("Something went wrong.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -151,7 +173,7 @@ const FeatureAnimalPage = () => {
 
         <hr />
         <div className="mx-auto mb-20 flex w-full max-w-[500px] items-center justify-center">
-          <Button outline label="Idk" onClick={handleSubmit(onSubmit)} />
+          <Button outline label="Submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>
     </Container>
