@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import ImageUpload from "../components/inputs/ImageUpload";
 import Input2 from "../components/inputs/Input2";
 import InputSection from "./InputSection";
+import HeadlessSelect from "./HeadlessSelect";
 
 const FeatureAnimalPage = () => {
   const {
@@ -50,6 +51,7 @@ const FeatureAnimalPage = () => {
           placeholder="Name"
           errors={errors}
           register={register}
+          required
         />
 
         {/* Species */}
@@ -59,6 +61,7 @@ const FeatureAnimalPage = () => {
           placeholder="ex. Penguin"
           errors={errors}
           register={register}
+          required
         />
 
         {/* Breed */}
@@ -80,20 +83,16 @@ const FeatureAnimalPage = () => {
           placeholder="Optional"
           errors={errors}
           register={register}
+          required
         />
 
         {/* Personality */}
         <div className="flex flex-col justify-between gap-1 sm:flex-row">
           <div className="flex items-center">
-            <span className="text-md text-black">Age</span>
+            <span className="text-md text-black">Personality</span>
           </div>
           <div className="relative w-full sm:w-[450px] md:w-[550px] lg:w-[700px] xl:w-[900px]">
-            <Input2
-              id="name"
-              placeholder="(Optional)"
-              errors={errors}
-              register={register}
-            />
+            <HeadlessSelect />
           </div>
         </div>
       </div>
