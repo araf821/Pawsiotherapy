@@ -18,13 +18,25 @@ const FeatureAnimalPage = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       imgSrc: "",
-      title: "",
-      content: "",
-      slug: "",
-      category: "",
-      published: false,
+      name: "",
+      species: "",
+      breed: "",
+      age: 1,
+      personality: "",
+      location: "",
+      description: "",
     },
   });
+
+  const imgSrc = watch("imgSrc");
+
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
+  };
 
   return (
     <Container small>
@@ -40,7 +52,12 @@ const FeatureAnimalPage = () => {
       </div>
 
       {/* Image Upload */}
-      <ImageUpload />
+      <div className="flex justify-center mb-8 w-full">
+        <ImageUpload
+          value={imgSrc}
+          onChange={(value) => setCustomValue("imgSrc", value)}
+        />
+      </div>
 
       {/* Animal Info */}
       <div className="flex flex-col gap-3">
@@ -80,7 +97,7 @@ const FeatureAnimalPage = () => {
           type="number"
           min="1"
           max="50"
-          placeholder="Optional"
+          placeholder="1"
           errors={errors}
           register={register}
           required
