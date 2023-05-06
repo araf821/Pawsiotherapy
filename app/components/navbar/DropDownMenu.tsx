@@ -114,6 +114,11 @@ const DropDownMenu = () => {
           />
           <hr />
           <MenuItem onClick={() => {}} label="Sign Out" />
+
+          {/* When the user doesn't exist */}
+          <MenuItem onClick={() => {}} label="Login" />
+          <MenuItem onClick={() => {}} label="Sign Up" />
+
         </div>
       </div>
     </div>

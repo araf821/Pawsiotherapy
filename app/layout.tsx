@@ -1,4 +1,5 @@
 import LoginModal from "./components/modal/LoginModal";
+import Modal from "./components/modal/Modal";
 import RegisterModal from "./components/modal/RegisterModal";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
@@ -19,9 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <LoginModal /> */}
-        {/* <RegisterModal /> */}
+        <LoginModal />
+        <RegisterModal />
         <Navbar />
+        {/* <Modal 
+        buttonLabel="idk"
+          isOpen={true}
+        /> */}
         <div>{children}</div>
       </body>
     </html>
