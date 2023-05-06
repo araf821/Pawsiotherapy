@@ -9,3 +9,71 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  animals        Animal[]  @relation("owner")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  accounts Account[]
+
+  sessionsAsBooker   Session[] @relation("bookedBy")
+  sessionsAsProvider Session[] @relation("providedBy")
+}
+
+model Animal {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  species     String
+  location    String
+  breed       String?
+  age         Int?
+  gender      String?
+  personality String?
+  image       String?
+  sessions    Session[] @relation("animal")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  owner  User?   @relation("owner", fields: [userId], references: [id])
+  userId String? @db.ObjectId
+}
+
+model Session {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  provider   User     @relation("providedBy", fields: [providerId], references: [id])
+  providerId String   @db.ObjectId
+  booker     User     @relation("bookedBy", fields: [bookerId], references: [id])
+  bookerId   String   @db.ObjectId
+  date       DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  Animal   Animal @relation("animal", fields: [animalId], references: [id])
+  animalId String @db.ObjectId
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
