@@ -100,7 +100,7 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
               router.push("/find/animals");
               toggleDropdown();
             }}
-            label="View All Animals"
+            label="All Animals"
           />
           <MenuItem
             onClick={() => {

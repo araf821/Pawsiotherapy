@@ -57,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({
             {/* Header */}
             <div className="relative flex items-center justify-center border-b-[1px] border-slate-400 bg-zinc-800 p-4 text-white sm:rounded-t-md">
               <button
-                className="absolute left-5 border-0 p-1 opacity-70 transition hover:scale-125"
+                className="absolute left-5 border-0 p-1 opacity-70 transition duration-500 hover:rotate-180"
                 onClick={handleClose}
               >
                 <IoIosClose size={30} />
@@ -71,10 +71,7 @@ const Modal: React.FC<ModalProps> = ({
             {/* Footer Content */}
             <div className="flex flex-col gap-2 p-6">
               <div className="flex w-full flex-row items-center gap-4">
-                <Button
-                  label={buttonLabel}
-                  onClick={handleSubmit}
-                />
+                <Button label={buttonLabel} onClick={handleSubmit} />
               </div>
               {footer}
             </div>
