@@ -53,7 +53,6 @@ const RegisterModal = () => {
       <div className="-mt-4 font-light text-neutral-600">
         Let&rsquo;s get you started!
       </div>
-      
     </div>
   );
 
@@ -82,7 +81,7 @@ const RegisterModal = () => {
 
   return (
     <Modal
-      isOpen={true}
+      isOpen={registerModal.isOpen}
       title="Register"
       buttonLabel="Register"
       onClose={registerModal.close}

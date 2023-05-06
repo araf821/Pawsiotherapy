@@ -1,3 +1,4 @@
+import getCurrentUser from "./actions/getCurrentUser";
 import LoginModal from "./components/modal/LoginModal";
 import Modal from "./components/modal/Modal";
 import RegisterModal from "./components/modal/RegisterModal";
@@ -12,21 +13,19 @@ export const metadata = {
   description: "Therapy sessions through the help of animals.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <LoginModal />
         <RegisterModal />
-        <Navbar />
-        {/* <Modal 
-        buttonLabel="idk"
-          isOpen={true}
-        /> */}
+        <Navbar currentUser={currentUser} />
         <div>{children}</div>
       </body>
     </html>
