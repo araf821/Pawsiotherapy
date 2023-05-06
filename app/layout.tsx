@@ -1,3 +1,6 @@
+import LoginModal from "./components/modal/LoginModal";
+import RegisterModal from "./components/modal/RegisterModal";
+import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -16,6 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* <LoginModal /> */}
+        {/* <RegisterModal /> */}
+        <Navbar />
         <div>{children}</div>
       </body>
     </html>
