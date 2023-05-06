@@ -12,6 +12,7 @@ import Button from "../Button";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 import { FcGoogle } from "react-icons/fc";
+import Input from "../inputs/Input";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
@@ -58,6 +59,21 @@ const LoginModal = () => {
       <div className="-mt-4 font-light text-neutral-600">
         Let&rsquo;s get you back in!
       </div>
+      <Input
+        id="email"
+        label="Email"
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="Password"
+        type="password"
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   );
 

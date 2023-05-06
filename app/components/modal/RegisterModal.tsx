@@ -11,6 +11,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
+import Input from "../inputs/Input";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -53,6 +54,28 @@ const RegisterModal = () => {
       <div className="-mt-4 font-light text-neutral-600">
         Let&rsquo;s get you started!
       </div>
+      <Input
+        id="name"
+        label="Name"
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="email"
+        label="Email"
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="Password"
+        type="password"
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   );
 
