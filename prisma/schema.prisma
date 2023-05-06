@@ -36,7 +36,7 @@ model Animal {
   age         String?
   gender      String?
   personality String?
-  image       String?
+  image       String
   description String?
   sessions    Session[] @relation("animal")
   createdAt   DateTime  @default(now())
