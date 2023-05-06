@@ -8,12 +8,15 @@ export default async function getAnimalById(params: IParams) {
   try {
     const { animalId } = params;
 
-    const animal = await prismaClient.animal.findFirst({
+    if (!animalId) {
+      console.log("null");
+      
+      return null;
+    }
+
+    const animal = await prismaClient.animal.findUnique({
       where: {
         id: animalId,
-      },
-      include: {
-        user: true,
       },
     });
 
@@ -24,12 +27,6 @@ export default async function getAnimalById(params: IParams) {
     return {
       ...animal,
       createdAt: animal.createdAt.toISOString(),
-      user: {
-        ...animal.user,
-        createdAt: animal.user.createdAt.toISOString(),
-        updatedAt: animal.user.updatedAt.toISOString(),
-        emailVerified: animal.user.emailVerified?.toISOString() || null,
-      },
     };
   } catch (error: any) {
     throw new Error(error);
