@@ -3,11 +3,13 @@
 import { FieldValues, useForm } from "react-hook-form";
 import Container from "../components/Container";
 import ImageUpload from "../components/inputs/ImageUpload";
-import Input2 from "../components/inputs/Input2";
 import InputSection from "./InputSection";
 import HeadlessSelect from "./HeadlessSelect";
+import { useState } from "react";
 
 const FeatureAnimalPage = () => {
+  const [selectedPersonality, setSelectedPersonality] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -52,7 +54,7 @@ const FeatureAnimalPage = () => {
       </div>
 
       {/* Image Upload */}
-      <div className="flex justify-center mb-8 w-full">
+      <div className="mb-8 flex w-full justify-center">
         <ImageUpload
           value={imgSrc}
           onChange={(value) => setCustomValue("imgSrc", value)}
@@ -109,7 +111,10 @@ const FeatureAnimalPage = () => {
             <span className="text-md text-black">Personality</span>
           </div>
           <div className="relative w-full sm:w-[450px] md:w-[550px] lg:w-[700px] xl:w-[900px]">
-            <HeadlessSelect />
+            <HeadlessSelect
+              selected={selectedPersonality}
+              setSelected={setSelectedPersonality}
+            />
           </div>
         </div>
       </div>
