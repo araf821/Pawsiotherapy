@@ -21,11 +21,13 @@ export async function POST(request: Request) {
     description,
   } = body;
 
+  let lowerSpecies = species.toLowerCase();
+
   const animal = await prismaClient.animal.create({
     data: {
       image,
       name,
-      species,
+      species: lowerSpecies,
       breed,
       age,
       personality,

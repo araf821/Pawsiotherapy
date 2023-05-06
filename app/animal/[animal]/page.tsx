@@ -6,12 +6,11 @@ import Image from "next/image";
 interface IParams {
   animalId?: string;
 }
+
 const SingleAnimalPage = async ({ params }: { params: IParams }) => {
   //@ts-ignore
   const { animal } = params;
   const animalId = animal ? animal.toString() : undefined;
-
-  console.log(animalId);
 
   const animalData = await getAnimalById({ animalId });
 

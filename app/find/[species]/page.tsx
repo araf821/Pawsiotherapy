@@ -1,12 +1,17 @@
+import getAnimalsBySpecies from "@/app/actions/getAnimalBySpecies";
 import Container from "@/app/components/Container";
-import getAnimals from "@/app/actions/getAnimals";
 import EmptyState from "@/app/components/EmptyState";
-import AnimalClient from "./AnimalClient";
 
-const AllAnimalsPage = async () => {
-  const animals = await getAnimals();
+interface IParams {
+  species?: string;
+}
 
-  if (animals.length === 0) {
+const AnimalsBySpeciesPage = async ({ params }: { params: IParams }) => {
+  //@ts-ignore
+  const animals = await getAnimalsBySpecies(params);
+  console.log(animals);
+  
+  if (animals?.length === 0) {
     return (
       <EmptyState
         title="No Animals? ;("
@@ -15,8 +20,6 @@ const AllAnimalsPage = async () => {
     );
   }
 
-  console.log(animals);
-
   return (
     <Container>
       {/* Heading */}
@@ -24,11 +27,7 @@ const AllAnimalsPage = async () => {
         Find Animals Near You!
         <hr className="mt-2" />
       </div>
-      <AnimalClient
-        //@ts-ignore
-        animals={animals}
-      />
     </Container>
   );
 };
-export default AllAnimalsPage;
+export default AnimalsBySpeciesPage;
