@@ -4,15 +4,14 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface AnimalCardProps {
-  count: number;
   animal: SafeAnimal;
 }
 
-const AnimalCard: React.FC<AnimalCardProps> = ({ count, animal }) => {
+const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
   const router = useRouter();
 
   return (
-    <div className="rounded-lg bg-white capitalize shadow-md transition duration-300 hover:shadow-2xl">
+    <div className="rounded-lg bg-white capitalize shadow-md transition duration-300 hover:shadow-2xl max-w-[400px] w-full">
       {/* Image Container */}
       <div className="relative mx-auto flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-t-lg">
         <Image
