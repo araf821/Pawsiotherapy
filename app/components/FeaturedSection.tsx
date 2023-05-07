@@ -12,9 +12,9 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[2520px] bg-yellow-500 pt-3 pb-20 sm:px-6 md:px-10 xl:px-20 2xl:mt-10 ">
+    <div className="mx-auto w-full max-w-[2520px] bg-yellow-200 pb-20 pt-3 sm:px-6 md:px-10 xl:px-20 2xl:mt-10 ">
       <div className="my-6 px-2">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-black">
           <p className="text-2xl font-semibold lg:text-4xl">Featured Animals</p>
           <button className="peer flex items-center justify-center gap-2 rounded-md p-2 font-semibold">
             <p className="peer transition hover:scale-105">View All</p>
@@ -23,7 +23,7 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
         </div>
         <hr className="border-black/20" />
       </div>
-      <div className="flex w-full flex-col items-center justify-around gap-6 px-3 md:flex-row">
+      <div className="flex w-full flex-col items-center justify-around gap-4 px-3 md:flex-row md:gap-6 lg:gap-12">
         {Array.from(Array(3), (animal, i) => (
           <AnimalCard key={i} animal={animals[i]} />
         ))}
