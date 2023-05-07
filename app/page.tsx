@@ -9,7 +9,12 @@ export default async function Home() {
   return (
     <main className="">
       <Hero />
-      {animals && <FeaturedSection animals={animals} />}
+      {animals && (
+        <FeaturedSection
+          // @ts-ignore
+          animals={animals}
+        />
+      )}
       <AssuranceSection />
     </main>
   );
