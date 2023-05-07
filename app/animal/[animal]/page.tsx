@@ -6,6 +6,8 @@ import BookingSection from "./BookingSection";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getUserById from "@/app/actions/getUserById";
 
+export const dynamic = "force-dynamic";
+
 interface IParams {
   animalId?: string;
 }
