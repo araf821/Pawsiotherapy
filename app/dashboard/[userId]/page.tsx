@@ -1,7 +1,6 @@
 import getAnimalsByUserId from "@/app/actions/getAnimalsByUserId";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import Container from "@/app/components/Container";
-import Heading from "@/app/components/Heading";
 import Image from "next/image";
 import MyList from "./MyList";
 
@@ -13,7 +12,6 @@ const ProfilePage = async ({ params }: { params: IParams }) => {
   //@ts-ignore
   const animals = await getAnimalsByUserId(params);
   const currentUser = await getCurrentUser();
-  console.log(currentUser);
 
   return (
     <Container>
