@@ -10,7 +10,6 @@ interface IParams {
 const AnimalsBySpeciesPage = async ({ params }: { params: IParams }) => {
   //@ts-ignore
   const animals = await getAnimalsBySpecies(params);
-  console.log(animals);
 
   if (animals?.length === 0) {
     return (

@@ -81,14 +81,14 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
               <MenuItem
                 onClick={() => {
                   router.push(`/dashboard/${currentUser.id}`);
-                  toggleDropdown();
+                  setIsOpen(false);
                 }}
                 label="Dashboard"
               />
               <MenuItem
                 onClick={() => {
                   router.push("/feature-animal");
-                  toggleDropdown();
+                  setIsOpen(false);
                 }}
                 label="Feature An Animal"
               />
@@ -98,20 +98,20 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
           <MenuItem
             onClick={() => {
               router.push("/find/animals");
-              toggleDropdown();
+              setIsOpen(false);
             }}
             label="All Animals"
           />
           <MenuItem
             onClick={() => {
-              toggleDropdown();
+              setIsOpen(false);
               router.push("/find/cat");
             }}
             label="Find A Cat"
           />
           <MenuItem
             onClick={() => {
-              toggleDropdown();
+              setIsOpen(false);
               router.push("/find/dog");
             }}
             label="Find A Dog"

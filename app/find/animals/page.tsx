@@ -4,7 +4,7 @@ import EmptyState from "@/app/components/EmptyState";
 import AnimalClient from "./AnimalClient";
 
 const AllAnimalsPage = async () => {
-  const animals = await getAnimals();
+  let animals = await getAnimals();
 
   if (animals.length === 0) {
     return (
@@ -15,7 +15,7 @@ const AllAnimalsPage = async () => {
     );
   }
 
-  console.log(animals);
+  let shuffledAnimals = animals.sort(() => Math.random() - 0.5);
 
   return (
     <Container>
@@ -26,7 +26,7 @@ const AllAnimalsPage = async () => {
       </div>
       <AnimalClient
         //@ts-ignore
-        animals={animals}
+        animals={shuffledAnimals}
       />
     </Container>
   );
