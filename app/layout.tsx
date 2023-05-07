@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import ToasterProvider from "./providers/ToastProvider";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default async function RootLayout({
         <RegisterModal />
         <Navbar currentUser={currentUser} />
         <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );

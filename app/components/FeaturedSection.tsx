@@ -12,13 +12,19 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[2520px] bg-yellow-200 pb-20 pt-3 sm:px-6 md:px-10 xl:px-20 2xl:mt-10 ">
+    <div className="mx-auto w-full max-w-[2520px] bg-yellow-500 pb-20 pt-3 sm:px-6 md:px-10 xl:px-20 2xl:mt-10 ">
       <div className="my-6 px-2">
         <div className="flex items-center justify-between text-black">
-          <p className="text-2xl font-semibold lg:text-4xl">Featured Animals</p>
+          <p className="text-2xl font-semibold lg:text-4xl">
+            <span className="bg-zinc-800 px-2 text-white">
+              Featured Animals
+            </span>
+          </p>
           <button className="peer flex items-center justify-center gap-2 rounded-md p-2 font-semibold">
-            <p className="peer transition hover:scale-105">View All</p>
-            <AiOutlineDoubleRight className="transition duration-500 peer-hover:translate-x-3" />
+            <div className="bg-zinc-800 text-white p-2 flex justify-center items-center gap-2" >
+              <p className="peer transition hover:scale-105">View All</p>
+              <AiOutlineDoubleRight className="transition duration-500 peer-hover:translate-x-1" />
+            </div>
           </button>
         </div>
         <hr className="border-black/20" />
