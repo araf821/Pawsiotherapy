@@ -37,7 +37,7 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
           />
         </div>
         {/* Info */}
-        <div className="flex w-full flex-col gap-3 sm:gap-4">
+        <div className="flex w-full flex-col gap-3 sm:gap-4 capitalize">
           <p>
             <span className="bg-zinc-800 px-2 py-1 text-3xl font-semibold text-white">
               {animalData.name}
@@ -76,7 +76,7 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
               {animalData.location}
             </span>
           </p>
-          <p className="text-lg">
+          <p className="text-lg normal-case">
             <span className="font-semibold">Bio: </span>{" "}
             {animalData.description}
           </p>

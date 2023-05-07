@@ -104,15 +104,15 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
           />
           <MenuItem
             onClick={() => {
-              router.push("/find/cats");
               toggleDropdown();
+              router.push("/find/cat");
             }}
             label="Find A Cat"
           />
           <MenuItem
             onClick={() => {
-              router.push("/find/dogs");
               toggleDropdown();
+              router.push("/find/dog");
             }}
             label="Find A Dog"
           />
