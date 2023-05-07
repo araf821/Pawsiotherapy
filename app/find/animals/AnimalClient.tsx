@@ -10,7 +10,7 @@ const AnimalClient: React.FC<AnimalClientProps> = ({ animals }) => {
     <div className="my-8 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {animals.map((animal) => (
         <div key={animal.id} className={``}>
-          <AnimalCard key={animal.id} animal={animal} count={1} />
+          <AnimalCard key={animal.id} animal={animal} />
         </div>
       ))}
     </div>
