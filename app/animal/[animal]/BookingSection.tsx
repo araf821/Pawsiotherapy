@@ -14,7 +14,7 @@ const BookingSection: React.FC<BookingProps> = ({
 }) => {
   return (
     <div className="bg-zinc-800 p-2 lg:rounded-lg">
-      <div className="flex flex-col gap-2 p-2 text-white ">
+      <div className="flex flex-col gap-2 p-2 text-white">
         <p className="text-lg font-semibold md:text-2xl lg:text-4xl">
           Book A Session
         </p>

@@ -5,13 +5,18 @@ import { useRouter } from "next/navigation";
 
 interface AnimalCardProps {
   animal: SafeAnimal;
+  lastFeatured?: number;
 }
 
-const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
+const AnimalCard: React.FC<AnimalCardProps> = ({ animal, lastFeatured }) => {
   const router = useRouter();
 
   return (
-    <div className="rounded-lg bg-white capitalize shadow-md transition duration-300 hover:shadow-2xl max-w-[400px] w-full">
+    <div
+      className={`${
+        lastFeatured === 3 ? "hidden xl:block" : ""
+      } w-full max-w-[400px] rounded-lg bg-white capitalize shadow-md transition duration-300 hover:shadow-2xl`}
+    >
       {/* Image Container */}
       <div className="relative mx-auto flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-t-lg">
         <Image

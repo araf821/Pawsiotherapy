@@ -21,17 +21,22 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
             </span>
           </p>
           <button className="peer flex items-center justify-center gap-2 rounded-md p-2 font-semibold">
-            <div className="bg-zinc-800 text-white p-2 flex justify-center items-center gap-2" >
-              <p className="peer transition hover:scale-105">View All</p>
-              <AiOutlineDoubleRight className="transition duration-500 peer-hover:translate-x-1" />
+            <div className="flex items-center justify-center gap-2 bg-zinc-800 px-2 py-1 text-white">
+              <p className="peer hidden transition hover:scale-105 sm:block">
+                View All
+              </p>
+              <AiOutlineDoubleRight
+                size={20}
+                className="transition duration-500 peer-hover:translate-x-1"
+              />
             </div>
           </button>
         </div>
         <hr className="border-black/20" />
       </div>
       <div className="flex w-full flex-col items-center justify-around gap-4 px-3 md:flex-row md:gap-6 lg:gap-12">
-        {Array.from(Array(3), (animal, i) => (
-          <AnimalCard key={i} animal={animals[i]} />
+        {Array.from(Array(4), (animal, i) => (
+          <AnimalCard key={i} animal={animals[i]} lastFeatured={i} />
         ))}
       </div>
     </div>
