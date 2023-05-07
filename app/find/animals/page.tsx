@@ -6,7 +6,7 @@ import AnimalClient from "./AnimalClient";
 const AllAnimalsPage = async () => {
   let animals = await getAnimals();
 
-  if (animals.length === 0) {
+  if (animals?.length === 0) {
     return (
       <EmptyState
         title="No Animals? ;("
@@ -15,7 +15,7 @@ const AllAnimalsPage = async () => {
     );
   }
 
-  let shuffledAnimals = animals.sort(() => Math.random() - 0.5);
+  let shuffledAnimals = animals?.sort(() => Math.random() - 0.5);
 
   return (
     <Container>

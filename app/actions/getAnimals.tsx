@@ -4,6 +4,10 @@ export default async function getAnimals() {
   try {
     const animals = await prismaClient.animal.findMany();
 
+    if (!animals) {
+      return null;
+    }
+
     const safeAnimals = animals.map((animal) => ({
       ...animal,
       createdAt: animal.createdAt.toISOString(),
