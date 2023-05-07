@@ -1,5 +1,5 @@
 import DatePicker from "@/app/components/inputs/DatePicker";
-import { SafeAnimal, SafeUser } from "@/app/types";
+import { SafeUser } from "@/app/types";
 
 interface BookingProps {
   currentUser?: SafeUser | null;

@@ -22,19 +22,5 @@ export async function POST(request: Request) {
     },
   });
 
-  const user = await prismaClient.user.update({
-    where: {
-      id: bookerId,
-    },
-    data: {
-      sessionsAsBooker: {
-        connect: {
-          id: session.id,
-        },
-      },
-    },
-    include: { sessionsAsBooker: true },
-  });
-
-  return NextResponse.json({ session, user });
+  return NextResponse.json(session);
 }

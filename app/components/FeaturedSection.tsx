@@ -1,12 +1,17 @@
+'use client'
+
 import { AiOutlineDoubleRight } from "react-icons/ai";
 import AnimalCard from "../find/animals/AnimalCard";
 import { SafeAnimal } from "../types";
+import { useRouter } from "next/navigation";
 
 interface FeaturedProps {
   animals: SafeAnimal[];
 }
 
 const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
+  const router = useRouter();
+  
   if (animals.length < 5) {
     return null;
   }
@@ -21,7 +26,7 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
             </span>
           </p>
           <button className="peer flex items-center justify-center gap-2 rounded-md p-2 font-semibold">
-            <div className="flex items-center justify-center gap-2 bg-zinc-800 px-2 py-1 text-white">
+            <div onClick={() => router.push('/find/animals')} className="flex items-center justify-center gap-2 bg-zinc-800 px-2 py-1 text-white">
               <p className="peer hidden transition hover:scale-105 sm:block">
                 View All
               </p>

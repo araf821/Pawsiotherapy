@@ -5,7 +5,7 @@ import Button from "../Button";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { SafeAnimal, SafeUser } from "@/app/types";
+import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 
 interface DatePickerProps {
@@ -74,8 +74,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
         w-full
         rounded-md border-2
         bg-white
-        p-4
-        pt-6 font-light outline-none
+        p-3
+        font-medium outline-none
         transition
         ${errors["date"] ? "border-red-700" : "border-neutral-300"}
         ${errors["date"] ? "focus:border-red-700" : "focus:border-black"}
@@ -83,7 +83,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
         />
       </div>
       <div className="mt-6 w-full max-w-[600px]">
-        <Button label="asdfasdf" onClick={handleSubmit(onSubmit)} />
+        <button
+          onClick={handleSubmit(onSubmit)}
+          className="flex duration-300 tracking-widest font-semibold w-full max-w-[600px] items-center justify-center rounded-lg border-2 border-zinc-100 bg-yellow-500 p-3 outline-none transition hover:bg-white"
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

@@ -172,7 +172,7 @@ const FeatureAnimalPage = () => {
         />
 
         <hr />
-        <div className="mx-auto mb-20 flex w-full max-w-[500px] items-center justify-center">
+        <div className="mx-auto flex w-full max-w-[500px] items-center justify-center">
           <Button outline label="Submit" onClick={handleSubmit(onSubmit)} />
         </div>
       </div>

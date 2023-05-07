@@ -32,7 +32,6 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
     }
   }, []);
 
-  console.log(currentUser?.image);
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
   }, [handleClickOutside]);

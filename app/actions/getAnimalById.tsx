@@ -9,8 +9,6 @@ export default async function getAnimalById(params: IParams) {
     const { animalId } = params;
 
     if (!animalId) {
-      console.log("null");
-
       return null;
     }
 
