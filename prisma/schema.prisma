@@ -52,7 +52,7 @@ model Session {
   providerId String   @db.ObjectId
   booker     User     @relation("bookedBy", fields: [bookerId], references: [id])
   bookerId   String   @db.ObjectId
-  date       DateTime
+  date       String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 

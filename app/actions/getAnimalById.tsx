@@ -10,7 +10,7 @@ export default async function getAnimalById(params: IParams) {
 
     if (!animalId) {
       console.log("null");
-      
+
       return null;
     }
 
@@ -27,6 +27,7 @@ export default async function getAnimalById(params: IParams) {
     return {
       ...animal,
       createdAt: animal.createdAt.toISOString(),
+      updatedAt: animal.updatedAt.toISOString(),
     };
   } catch (error: any) {
     throw new Error(error);
