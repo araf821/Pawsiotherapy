@@ -1,4 +1,4 @@
-import { Animal, User } from "@prisma/client";
+import { Animal, Session, User } from "@prisma/client";
 
 export type SafeUser = Omit<
   User,
@@ -10,6 +10,11 @@ export type SafeUser = Omit<
 };
 
 export type SafeAnimal = Omit<Animal, "createdAt" | "updatedAt"> & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type SafeSession = Omit<Session, "createdAt" | "updatedAt"> & {
   createdAt: string;
   updatedAt: string;
 };

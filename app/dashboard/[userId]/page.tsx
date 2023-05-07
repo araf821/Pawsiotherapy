@@ -3,6 +3,10 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import Image from "next/image";
 import MyList from "./MyList";
+import MySessions from "./MySessions";
+import getSessionsByUserId from "@/app/actions/getSessionsByUserId";
+import getAnimalFromSession from "@/app/actions/getAnimalFromSession";
+import { SafeAnimal } from "@/app/types";
 
 interface IParams {
   userId?: string;
@@ -12,6 +16,7 @@ const ProfilePage = async ({ params }: { params: IParams }) => {
   //@ts-ignore
   const animals = await getAnimalsByUserId(params);
   const currentUser = await getCurrentUser();
+  const sessions = await getSessionsByUserId(params);
 
   return (
     <Container>
@@ -46,8 +51,9 @@ const ProfilePage = async ({ params }: { params: IParams }) => {
         </div>
       </div>
 
-      <MyList animals={animals}/>
+      <MyList animals={animals} />
 
+      {/* <MySessions sessionAnimals={sessionAnimals} /> */}
     </Container>
   );
 };
