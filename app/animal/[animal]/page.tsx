@@ -71,21 +71,19 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
                 {animalData.age}
               </span>
             </p>
-            {animal.breed !== "" && (
               <p className="text-lg md:text-xl">
                 <span className="bg-zinc-800 px-2 py-1 text-white">
                   <span className="font-semibold">Breed: </span>
-                  {animalData.breed}
+                  {animalData?.breed || "N/A"}
                 </span>
               </p>
-            )}
             <p className="text-lg md:text-xl">
               <span className="bg-zinc-800 px-2 py-1 text-white">
                 <span className="font-semibold">Located At: </span>
                 {animalData.location}
               </span>
             </p>
-            <p className="text-lg normal-case md:text-xl">
+            <p className="text-lg normal-case md:text-xl max-w-[500px] overflow-hidden">
               <span className="font-semibold">
                 <span className="bg-zinc-800 px-1 text-white">Bio:</span>
               </span>{" "}
