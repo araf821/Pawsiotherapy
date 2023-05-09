@@ -85,7 +85,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       <div className="mt-6 w-full max-w-[600px]">
         <button
           onClick={handleSubmit(onSubmit)}
-          className="flex duration-300 tracking-widest font-semibold w-full max-w-[600px] items-center justify-center rounded-lg border-2 border-zinc-100 bg-yellow-500 p-3 outline-none transition hover:bg-white"
+          className="flex w-full max-w-[600px] items-center justify-center rounded-lg bg-white p-3 font-semibold tracking-wide outline-none transition duration-300 hover:scale-[1.03] hover:bg-yellow-200"
         >
           Submit
         </button>

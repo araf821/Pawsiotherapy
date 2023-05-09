@@ -2,7 +2,7 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 flex w-full flex-col items-center justify-center bg-zinc-800 px-8 pb-8 pt-10 text-white">
+    <footer className="flex w-full flex-col items-center justify-center bg-zinc-800 px-8 pb-8 pt-10 text-white">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 md:gap-24 lg:grid-cols-4 lg:gap-28 xl:gap-48 2xl:gap-56">
         <div className="space-y-1">
           <div className="translate-x-[7px]">
