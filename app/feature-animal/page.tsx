@@ -75,7 +75,7 @@ const FeatureAnimalPage = () => {
   return (
     <Container small>
       {/* Heading */}
-      <div className="flex flex-col justify-center mb-10
+      <div className="flex flex-col justify-center
  gap-1 py-6">
         <p className="text-2xl font-semibold text-neutral-900 md:text-3xl">
           Feature An Animal
@@ -95,7 +95,7 @@ const FeatureAnimalPage = () => {
       </div>
 
       {/* Animal Info */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col mb-10 gap-3">
         {/* Name */}
         <InputSection
           id="name"
