@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pawsiotherpy
 
-## Getting Started
+### Paws For Your Mental Health
 
-First, run the development server:
+Check out the completed project [here](https://pawsiotherapy.vercel.app).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pawsiotherapy is an online platform for booking therapy sessions with animals to improve mental health. This innovative platform allows users to find and book therapy sessions with various animals, including pets and therapy animals.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pawsiotherapy is designed to be an affordable and accessible option for people who are seeking therapy but cannot afford expensive therapists. Studies have shown that spending time with animals can have a positive impact on mental health, and we are making this option available to everyone.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The platform is easy to use and features a variety of animals available for therapy sessions. Users can browse through listings, find animals located near them, and book sessions with the animal of their choice. Additionally, users can upload their own pets for others to book sessions with.
 
-## Learn More
+Pawsiotherapy is also beneficial for animal shelters, as they can advertise their animals for more recognition and increase their chances of being adopted.
 
-To learn more about Next.js, take a look at the following resources:
+Some of the key features of Pawsiotherapy include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Easy browsing of animals available for therapy sessions
+- Species-based search to find the animals that you like
+- More ways to search and filter are coming soon
+- Simple booking process to schedule therapy sessions
+- Ability to upload your own pet for others to book sessions with
+- More features to be added!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Try it out today and experience the benefits of animal therapy for yourself.
 
-## Deploy on Vercel
+#### Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Our platform is built using the latest technologies to provide the best experience for our users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- We use Next.js, a popular React-based framework for server-side rendering and static site generation, to ensure fast and responsive pages.
+
+- TypeScript is used for our codebase to provide better type checking and help reduce errors.
+
+- For authentication, we use Oauth and NextAuth to securely manage user sessions and ensure the privacy of our users.
+
+- Cloudinary is used for image storage, providing secure and reliable storage for all our images.
+
+- We use MongoDB and Prisma for database integration, allowing us to easily store and manage data related to our platform. This combination allows us to provide a scalable and flexible database solution.
+
+- Our platform is deployed on Vercel, a popular cloud hosting provider that ensures fast and reliable deployment of our application.
+
+#### Future of Pawsiotherapy
+
+After all, this was simply a solo hackathon project done in about 30 hours. There is not yet any plans of turning the site into a full-fledged product for people to use. But updates will be coming from time to time!
