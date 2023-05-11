@@ -1,16 +1,38 @@
 "use client";
 import { truncate } from "@/app/lib/functions";
 import { SafeAnimal } from "@/app/types";
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useCallback } from "react";
+import { toast } from "react-hot-toast";
 
 interface AnimalCardProps {
   animal: SafeAnimal;
   lastFeatured?: number;
+  deleteBtn?: boolean;
 }
 
-const AnimalCard: React.FC<AnimalCardProps> = ({ animal, lastFeatured }) => {
+const AnimalCard: React.FC<AnimalCardProps> = ({
+  animal,
+  lastFeatured,
+  deleteBtn,
+}) => {
   const router = useRouter();
+
+  const handleDelete = useCallback(
+    (id: string) => {
+      axios
+        .delete(`/api/animals/${id}`)
+        .then(() => {
+          toast.success("Deleted");
+        })
+        .catch(() => {
+          toast.error("Something went wrong!");
+        });
+    },
+    []
+  );
 
   return (
     <div
@@ -52,6 +74,18 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ animal, lastFeatured }) => {
         >
           View More
         </button>
+        {deleteBtn && (
+          <div className="text-center">
+            <button
+              onClick={() => {
+                handleDelete(animal.id);
+              }}
+              className="font-semibold text-neutral-600 transition duration-300 hover:text-neutral-800"
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
