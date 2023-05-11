@@ -5,36 +5,63 @@ interface BookingProps {
   currentUser?: SafeUser | null;
   provider?: SafeUser | null;
   animalId: string;
+  animalName: string;
 }
 
 const BookingSection: React.FC<BookingProps> = ({
   currentUser,
   provider,
   animalId,
+  animalName,
 }) => {
   return (
     <div className="bg-zinc-800 p-2 xl:mb-10 xl:rounded-lg">
       <div className="flex flex-col gap-2 p-2 text-white">
         <p className="text-lg font-semibold md:text-2xl lg:text-4xl">
-          <span className="transition hover:text-neutral-400 hover:scale-95">B</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">o</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">o</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">k </span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">A </span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">S</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">e</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">s</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">s</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">i</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">o</span>
-          <span className="transition hover:text-neutral-400 hover:scale-95">n</span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            B
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            o
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            o
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            k{" "}
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            A{" "}
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            S
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            e
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            s
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            s
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            i
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            o
+          </span>
+          <span className="transition hover:scale-95 hover:text-neutral-400">
+            n
+          </span>
         </p>
         <hr className="border-gray-500" />
         <div className="mx-2 my-4 rounded-md bg-slate-50 p-2 text-center text-black md:mx-20">
           <p className="text-md mx-auto max-w-[700px] md:text-lg lg:text-xl">
-            To book a session with this little buddy, simply pick a date on
-            which you&rsquo;d be available and you will hear back from the owner
-            soon!
+            To book a session with{" "}
+            <span className="capitalize">{animalName}</span>, simply pick a date
+            on which you&rsquo;d be available and you will hear back from the
+            owner soon!
           </p>
         </div>
       </div>
@@ -44,7 +71,7 @@ const BookingSection: React.FC<BookingProps> = ({
         currentUser={currentUser}
         provider={provider}
       />
-      <hr className="xl:hidden border-gray-500" />
+      <hr className="border-gray-500 xl:hidden" />
     </div>
   );
 };

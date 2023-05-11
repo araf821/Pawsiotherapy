@@ -94,6 +94,7 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
       </div>
       <BookingSection
         animalId={animalData.id}
+        animalName={animalData.name}
         currentUser={currentUser}
         //@ts-ignore
         provider={provider}

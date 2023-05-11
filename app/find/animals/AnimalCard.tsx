@@ -1,4 +1,5 @@
 "use client";
+import { truncate } from "@/app/lib/functions";
 import { SafeAnimal } from "@/app/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -27,12 +28,12 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ animal, lastFeatured }) => {
         />
       </div>
       {/* Info */}
-      <div className="mt-1 flex flex-col gap-1 p-2">
+      <div className="mt-1 flex flex-col gap-1 p-4">
         <div className="flex items-center justify-between text-sm font-light text-neutral-800">
-          <p>{animal.species}</p>
-          <p>{animal.location}</p>
+          <p>{truncate(animal.species, 10)}</p>
+          <p>{truncate(animal.location, 19)}</p>
         </div>
-        <p className="text-2xl font-semibold">{animal.name}</p>
+        <p className="text-2xl font-semibold">{truncate(animal.name, 20)}</p>
         <p>
           <span className="bg-zinc-800 px-2 text-white">
             {animal.personality}
