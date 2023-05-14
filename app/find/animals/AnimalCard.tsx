@@ -56,7 +56,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({
     <div
       className={`${
         lastFeatured === 3 ? "hidden xl:block" : ""
-      } w-full max-w-[400px] rounded-lg bg-white capitalize shadow-md transition duration-300 hover:shadow-2xl`}
+      } w-full max-w-[400px] rounded-lg bg-slate-50 capitalize shadow-md transition duration-300 hover:shadow-2xl`}
     >
       {/* Image Container */}
       <div className="relative mx-auto flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-t-lg">

@@ -4,15 +4,19 @@ import HeadlessDisclosure from "./HeadlessDisclosure";
 const FaqSection = () => {
   return (
     <div className="flex w-full flex-col justify-center px-4 pt-8">
-      <div className="mx-auto w-full max-w-[1100px] rounded-2xl bg-white p-2">
-        <p className="p-2">
-          <span className="text-md rounded-md bg-zinc-800 p-2 text-white md:text-xl lg:text-2xl ">
-            Frequently Asked Questions
-          </span>
+      <div className="mx-auto w-full max-w-[1100px] rounded-2xl bg-zinc-800 p-2">
+        <p className="p-2 font-semibold text-white md:text-xl lg:text-2xl">
+          Frequently Asked Questions
         </p>
-        {faq.map((f, i) => (
-          <HeadlessDisclosure key={i} question={f.question} answer={f.answer} />
-        ))}
+        <div className="m-2 flex flex-col gap-1">
+          {faq.map((f, i) => (
+            <HeadlessDisclosure
+              key={i}
+              question={f.question}
+              answer={f.answer}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
         <div className="relative h-[100px] max-h-[200px] w-[100px] max-w-[200px] md:h-[200px] md:w-full">
           <Image
             //@ts-ignore
-            src={currentUser?.image}
+            src={currentUser?.image || "/images/placeholder.jpg"}
             alt="current user profile"
             fill
             className="h-[200px] rounded-lg object-cover"
