@@ -27,7 +27,7 @@ const MyList: React.FC<MyListProps> = ({ animals }) => {
             onClick={() => {
               router.push("/feature-animal");
             }}
-            className="rounded-md bg-zinc-800 p-4 text-white transition hover:border-2 hover:border-zinc-800 hover:bg-transparent hover:text-zinc-800"
+            className="rounded-md border-2 border-zinc-800 bg-zinc-800 p-4 text-white transition duration-300 hover:bg-transparent hover:text-zinc-800"
           >
             Feature An Animal
           </button>

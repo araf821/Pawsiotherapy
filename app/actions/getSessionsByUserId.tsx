@@ -12,19 +12,22 @@ export default async function getSessionsByUserId(params: IParams) {
       where: {
         bookerId: userId,
       },
+      select: {
+        Animal: true,
+      },
     });
 
-    if (!sessions) {
-      return null;
-    }
-
-    const safeSessions = sessions.map((session) => ({
-      ...session,
-      createdAt: session.createdAt.toISOString,
-      updatedAt: session.updatedAt.toISOString(),
+    const animals = sessions.map((session) => ({
+      ...session.Animal,
     }));
 
-    return safeSessions;
+    const safeAnimals = animals.map((animal) => ({
+      ...animal,
+      createdAt: animal.createdAt.toISOString(),
+      updatedAt: animal.updatedAt.toISOString(),
+    }));
+
+    return safeAnimals;
   } catch (error: any) {
     throw new Error(error);
   }
