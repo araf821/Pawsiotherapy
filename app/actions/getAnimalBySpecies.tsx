@@ -14,7 +14,7 @@ export default async function getAnimalsBySpecies(params: IParams) {
 
     const animals = await prismaClient.animal.findMany({
       where: {
-        species: species,
+        species: { contains: species },
       },
     });
 
