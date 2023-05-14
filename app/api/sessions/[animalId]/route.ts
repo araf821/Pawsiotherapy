@@ -21,11 +21,11 @@ export async function DELETE(
     throw new Error("Invalid animal ID.");
   }
 
-  const animals = await prismaClient.animal.deleteMany({
+  const sessions = await prismaClient.session.deleteMany({
     where: {
-      id: animalId,
+      animalId: animalId,
     },
   });
 
-  return NextResponse.json(animals);
+  return NextResponse.json(sessions);
 }

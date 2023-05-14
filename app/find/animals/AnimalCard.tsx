@@ -11,12 +11,14 @@ interface AnimalCardProps {
   animal: SafeAnimal;
   lastFeatured?: number;
   deleteBtn?: boolean;
+  cancelBtn?: boolean;
 }
 
 const AnimalCard: React.FC<AnimalCardProps> = ({
   animal,
   lastFeatured,
   deleteBtn,
+  cancelBtn,
 }) => {
   const router = useRouter();
 
@@ -26,12 +28,28 @@ const AnimalCard: React.FC<AnimalCardProps> = ({
         .delete(`/api/animals/${id}`)
         .then(() => {
           toast.success("Deleted");
+          router.refresh();
         })
         .catch(() => {
           toast.error("Something went wrong!");
         });
     },
-    []
+    [router]
+  );
+
+  const handleCancelSession = useCallback(
+    (id: string) => {
+      axios
+        .delete(`/api/sessions/${id}`)
+        .then(() => {
+          toast.success("Cancelled Your Session");
+          router.refresh();
+        })
+        .catch(() => {
+          toast.error("Something went wrong!");
+        });
+    },
+    [router]
   );
 
   return (
@@ -83,6 +101,18 @@ const AnimalCard: React.FC<AnimalCardProps> = ({
               className="font-semibold text-neutral-600 transition duration-300 hover:text-neutral-800"
             >
               Delete
+            </button>
+          </div>
+        )}
+        {cancelBtn && (
+          <div className="text-center">
+            <button
+              onClick={() => {
+                handleCancelSession(animal.id);
+              }}
+              className="font-semibold text-neutral-600 transition duration-300 hover:text-neutral-800"
+            >
+              Cancel Session
             </button>
           </div>
         )}

@@ -1,7 +1,6 @@
 "use client";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Button from "../Button";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -47,7 +46,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       })
       .then(() => {
         toast.success("Success!");
-        router.push("/");
+        router.push("/dashboard");
         reset();
       })
       .catch(() => {
