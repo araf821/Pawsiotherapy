@@ -1,12 +1,7 @@
 import prismaClient from "../lib/prismadb";
 
-interface IParams {
-  userId?: string;
-}
-
-export default async function getSessionsByUserId(params: IParams) {
+export default async function getSessionsByUserId(userId: string) {
   try {
-    const { userId } = params;
 
     const sessions = await prismaClient.session.findMany({
       where: {

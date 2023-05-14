@@ -79,7 +79,7 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
             <>
               <MenuItem
                 onClick={() => {
-                  router.push(`/dashboard/${currentUser.id}`);
+                  router.push("/dashboard");
                   setIsOpen(false);
                 }}
                 label="Dashboard"

@@ -1,22 +1,28 @@
-import getAnimalsByUserId from "@/app/actions/getAnimalsByUserId";
-import getCurrentUser from "@/app/actions/getCurrentUser";
-import Container from "@/app/components/Container";
-import Image from "next/image";
+"use client";
+
+import { SafeAnimal, SafeUser } from "@/app/types";
 import MyList from "./MyList";
 import MySessions from "./MySessions";
-import getSessionsByUserId from "@/app/actions/getSessionsByUserId";
+import Image from "next/image";
 
-interface IParams {
-  userId?: string;
+interface DashboardClientProps {
+  animals: SafeAnimal[] | null;
+  sessionAnimals: SafeAnimal[];
+  currentUser: SafeUser | null;
 }
 
-const ProfilePage = async ({ params }: { params: IParams }) => {
-  const animals = await getAnimalsByUserId(params);
-  const currentUser = await getCurrentUser();
-  const sessionAnimals = await getSessionsByUserId(params);
+const DashboardClient: React.FC<DashboardClientProps> = ({
+  currentUser,
+  animals,
+  sessionAnimals,
+}) => {
+
+  if (!currentUser) {
+    return null;
+  }
 
   return (
-    <Container>
+    <div>
       <div className="relative my-8 flex items-start justify-normal gap-3 rounded-lg bg-zinc-800 p-4 text-white shadow-2xl md:flex-row md:gap-8">
         <div className="relative h-[100px] max-h-[200px] w-[100px] max-w-[200px] md:h-[200px] md:w-full">
           <Image
@@ -47,11 +53,9 @@ const ProfilePage = async ({ params }: { params: IParams }) => {
           <span className="transition hover:text-neutral-400">d</span>
         </div>
       </div>
-
       <MyList animals={animals} />
-
       <MySessions sessionAnimals={sessionAnimals} />
-    </Container>
+    </div>
   );
 };
-export default ProfilePage;
+export default DashboardClient;

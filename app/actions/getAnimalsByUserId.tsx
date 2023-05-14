@@ -1,12 +1,7 @@
 import prismaClient from "../lib/prismadb";
 
-interface IParams {
-  userId?: string;
-}
-
-export default async function getAnimalsByUserId(params: IParams) {
+export default async function getAnimalsByUserId(userId: string) {
   try {
-    const { userId } = params;
 
     const animals = await prismaClient.animal.findMany({
       where: {
