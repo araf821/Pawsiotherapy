@@ -9,18 +9,18 @@ const pacifico = Pacifico({
 
 const Hero = () => {
   return (
-    <div className={`mx-auto flex max-w-[2520px] justify-center 2xl:px-20`}>
+    <div className={`mx-auto flex max-w-[2520px] justify-center`}>
       <div
         className="relative flex aspect-video h-[400px] max-h-[600px]
-        w-full flex-row items-center justify-center overflow-hidden text-center sm:h-[500px] lg:h-[60vw] 2xl:rounded-b-xl"
+        w-full flex-row items-center justify-center overflow-hidden text-center sm:h-[500px] lg:h-[60vw]"
       >
-        <div className="absolute inset-0 z-10 bg-gradient-to-l from-black/40 via-transparent to-black/40" />
         <Image
           fill
           src="/images/hero-bg.jpg"
           alt="blog background"
-          className="w-full object-cover xl:object-none"
+          className="w-full object-cover"
         />
+        <div className="absolute inset-0 z-10 bg-gradient-to-l from-black/40 via-transparent to-black/40" />
 
         <div className="absolute bottom-10 z-20 m-4 rounded-2xl bg-black/60 p-2 md:p-4">
           <div className="absolute -right-0 -top-[6px] text-xl text-white md:top-[-12px] md:text-2xl">

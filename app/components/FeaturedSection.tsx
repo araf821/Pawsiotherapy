@@ -17,7 +17,7 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[2520px] bg-[#e19233] pb-20 pt-3 sm:px-6 md:px-10 xl:px-20 2xl:mt-10 ">
+    <div className="mx-auto w-full max-w-[2520px] bg-[#e19233] pb-20 pt-3 sm:px-6 md:px-10 xl:px-20">
       <div className="my-6 px-2">
         <div className="flex items-center justify-between text-black">
           <p className="text-2xl font-semibold lg:text-3xl">
@@ -30,7 +30,7 @@ const FeaturedSection: React.FC<FeaturedProps> = ({ animals }) => {
               onClick={() => router.push("/find/animals")}
               className="flex items-center justify-center gap-2 bg-zinc-800 px-2 py-1 text-white"
             >
-              <p className="lg:text-xl peer hidden transition hover:scale-105 sm:block">
+              <p className="peer hidden transition hover:scale-105 sm:block lg:text-xl">
                 View All
               </p>
               <AiOutlineDoubleRight
