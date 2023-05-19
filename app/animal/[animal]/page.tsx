@@ -33,65 +33,64 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
 
   return (
     <div className="mx-auto flex w-full max-w-[1250px] flex-col justify-center">
-      <div className="px-2 lg:px-0">
-        <div className="border-1 relative my-8 flex flex-col items-center justify-between gap-4 rounded-lg border-neutral-400  shadow-lg md:flex-row md:gap-8 lg:gap-12 xl:gap-16">
-          {/* Image */}
-          <div className="relative h-[300px] w-full overflow-hidden rounded-t-lg shadow-2xl sm:h-[400px] md:rounded-none lg:h-[500px] lg:rounded-l-lg">
-            <Image
-              alt={animalData.name}
-              src={animalData.image}
-              fill
-              className=" object-cover transition duration-500 hover:scale-110"
-            />
-          </div>
-          {/* Info */}
-          <div className=" flex w-full flex-col gap-3 p-3 capitalize sm:gap-4">
-            <p>
-              <span className="bg-zinc-800 px-2 py-1 text-xl font-semibold text-white md:text-2xl">
-                {animalData.name}
-              </span>
-            </p>
-            <p className="text-lg md:text-xl">
-              <span className="bg-zinc-800 px-2 py-1 text-white">
-                <span className="font-semibold">Species: </span>
-                {animalData.species}
-              </span>
-            </p>
-            <p className="text-lg md:text-xl">
-              <span className="bg-zinc-800 px-2 py-1 text-white">
-                <span className="font-semibold">Personality: </span>
-                {animalData.personality}
-              </span>
-            </p>
-
-            <p className="text-lg md:text-xl">
-              <span className="bg-zinc-800 px-2 py-1 text-white">
-                <span className="font-semibold">Age: </span>
-                {animalData.age}
-              </span>
-            </p>
-            <p className="text-lg md:text-xl">
-              <span className="bg-zinc-800 px-2 py-1 text-white">
-                <span className="font-semibold">Breed: </span>
-                {animalData?.breed || "N/A"}
-              </span>
-            </p>
-            <p className="text-lg md:text-xl">
-              <span className="bg-zinc-800 px-2 py-1 text-white">
-                <span className="font-semibold">Located At: </span>
-                {animalData.location}
-              </span>
-            </p>
-            <p className="max-w-[500px] overflow-hidden text-lg normal-case md:text-xl">
-              <span className="font-semibold">
-                <span className="bg-zinc-800 px-1 text-white">Bio:</span>
-              </span>{" "}
-              {animalData.description}
-            </p>
-          </div>
+      <div className="border-1 my-8 relative flex flex-col items-center justify-between gap-4 rounded-lg border-neutral-400 px-2 shadow-lg  md:flex-row md:gap-8 lg:gap-12 lg:px-0 xl:gap-16">
+        {/* Image */}
+        <div className="relative h-[300px] w-full overflow-hidden rounded-t-lg shadow-2xl sm:h-[400px] md:rounded-none lg:h-[500px] lg:rounded-l-lg">
+          <Image
+            alt={animalData.name}
+            src={animalData.image}
+            fill
+            className=" object-cover transition duration-500 hover:scale-110"
+          />
         </div>
-        <hr />
+        {/* Info */}
+        <div className=" flex w-full flex-col gap-3 p-3 capitalize sm:gap-4">
+          <p>
+            <span className="bg-zinc-800 px-2 py-1 text-xl font-semibold text-white md:text-2xl">
+              {animalData.name}
+            </span>
+          </p>
+          <p className="text-lg md:text-xl">
+            <span className="bg-zinc-800 px-2 py-1 text-white">
+              <span className="font-semibold">Species: </span>
+              {animalData.species}
+            </span>
+          </p>
+          <p className="text-lg md:text-xl">
+            <span className="bg-zinc-800 px-2 py-1 text-white">
+              <span className="font-semibold">Personality: </span>
+              {animalData.personality}
+            </span>
+          </p>
+
+          <p className="text-lg md:text-xl">
+            <span className="bg-zinc-800 px-2 py-1 text-white">
+              <span className="font-semibold">Age: </span>
+              {animalData.age}
+            </span>
+          </p>
+          <p className="text-lg md:text-xl">
+            <span className="bg-zinc-800 px-2 py-1 text-white">
+              <span className="font-semibold">Breed: </span>
+              {animalData?.breed || "N/A"}
+            </span>
+          </p>
+          <p className="text-lg md:text-xl">
+            <span className="bg-zinc-800 px-2 py-1 text-white">
+              <span className="font-semibold">Located At: </span>
+              {animalData.location}
+            </span>
+          </p>
+          <p className="max-w-[700px] lg:max-w-[500px] overflow-hidden text-lg normal-case md:text-xl">
+            <span className="font-semibold">
+              <span className="bg-zinc-800 px-1 text-white">Bio:</span>
+            </span>{" "}
+            {animalData.description}
+          </p>
+        </div>
       </div>
+      <hr />
+
       <BookingSection
         animalId={animalData.id}
         animalName={animalData.name}

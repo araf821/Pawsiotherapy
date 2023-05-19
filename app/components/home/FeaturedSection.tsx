@@ -1,8 +1,8 @@
 "use client";
 
 import { AiOutlineDoubleRight } from "react-icons/ai";
-import AnimalCard from "../find/animals/AnimalCard";
-import { SafeAnimal } from "../types";
+import AnimalCard from "../../find/animals/AnimalCard";
+import { SafeAnimal } from "../../types";
 import { useRouter } from "next/navigation";
 
 interface FeaturedProps {

@@ -1,7 +1,7 @@
 import getAnimals from "./actions/getAnimals";
-import AssuranceSection from "./components/AssuranceSection";
-import FeaturedSection from "./components/FeaturedSection";
-import Hero from "./components/Hero";
+import AssuranceSection from "./components/home/AssuranceSection";
+import FeaturedSection from "./components/home/FeaturedSection";
+import Hero from "./components/home/Hero";
 
 export default async function Home() {
   const animals = await getAnimals();
@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main className="">
       <Hero />
-      {animals && (
+      {animals && animals.length > 4 && (
         <FeaturedSection
           // @ts-ignore
           animals={animals}
