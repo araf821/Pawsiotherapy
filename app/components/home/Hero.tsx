@@ -1,69 +1,56 @@
+"use client";
+
 import { Lilita_One } from "next/font/google";
 import Image from "next/image";
 import { ImQuotesRight } from "react-icons/im";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const pacifico = Lilita_One({
   weight: "400",
   subsets: ["latin"],
 });
 
-// <div className={`mx-auto flex max-w-[2520px] justify-center`}>
-//   <div
-//     className="relative flex aspect-video h-[400px] max-h-[600px]
-//     w-full flex-row items-center justify-center overflow-hidden text-center sm:h-[500px] lg:h-[60vw]"
-//   >
-//     <Image
-//       fill
-//       src="/images/hero-bg.jpg"
-//       alt="blog background"
-//       className="w-full object-cover"
-//     />
-//     <div className="absolute inset-0 z-10 bg-gradient-to-l from-black/40 via-transparent to-black/40" />
-
-//     <div className="absolute bottom-10 z-20 m-4 rounded-2xl bg-black/60 p-2 md:p-4">
-//       <div className="absolute -right-0 -top-[6px] text-xl text-white md:top-[-12px] md:text-2xl">
-//         <ImQuotesRight />
-//       </div>
-//       <p className="text-lg text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl ">
-//         &rdquo;Pawsiotherapy will soon make psychotherapists
-//         obsolete.&rdquo; - Elon Musk
-//       </p>
-//     </div>
-//   </div>
-// </div>
-
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <section className="mx-auto flex max-w-[2520px] flex-col items-center justify-center bg-zinc-800 pb-10">
       {/* Hero components holder */}
-      <div className="flex w-full max-w-[1750px] flex-col gap-8 px-4 sm:px-6 md:flex-row md:px-10 xl:px-20">
+      <div className="flex w-full max-w-[1350px] flex-col items-center justify-between gap-8 px-4 sm:px-6 md:flex-row md:px-10 xl:px-20">
         {/* Text section */}
         <div
-          className={`flex flex-col items-center justify-center text-center text-6xl text-white md:items-start md:text-start ${pacifico.className} `}
+          className={`flex flex-col items-center justify-center text-center text-5xl text-white sm:text-6xl md:items-start lg:text-7xl xl:text-8xl ${pacifico.className} `}
         >
           <p>Therapy</p>
           <p>Sessions</p>
           <p>With</p>
           <p>Animals</p>
+          <button
+            onClick={() => {
+              router.push("/find/animals");
+            }}
+            className="mx-auto mt-4 w-full max-w-[400px] rounded-md border-2 border-white p-3 text-center font-sans text-lg font-semibold text-white transition duration-300 hover:bg-white hover:text-black md:text-2xl"
+          >
+            Browse
+          </button>
         </div>
 
         {/* Image section */}
-        <div className="relative aspect-square h-full w-full">
+        <div className="relative aspect-square h-full w-full overflow-hidden rounded-md md:max-w-[450px] lg:max-w-[575px]">
           <Image
             fill
             src="/images/hero-bg.jpg"
             alt="blog background"
-            className="w-full rounded-md object-cover"
+            className="w-full transform object-cover duration-500 hover:scale-110"
           />
         </div>
       </div>
 
-      {/* Button container */}
-      <div className="w-full px-4 text-center">
-        <button className="font-semibold rounded-md hover:bg-white hover:text-black transition duration-300 mx-auto mt-8 w-full max-w-[400px] border-2 border-white p-3 text-center text-lg text-white md:text-2xl">
-          Browse
-        </button>
+      {/* Quote Container */}
+      <div className="mt-8 flex px-4 text-center text-lg font-light text-zinc-300 md:text-xl lg:text-2xl xl:text-3xl">
+        &rdquo;Pawsiotherapy will soon make psychotherapists obsolete.&rdquo; -
+        Elon Musk
       </div>
     </section>
   );
