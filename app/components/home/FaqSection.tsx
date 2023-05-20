@@ -6,9 +6,9 @@ const FaqSection = () => {
     <div className="flex w-full flex-col justify-center px-4 pt-8">
       <div className="mx-auto w-full max-w-[1100px] rounded-2xl bg-zinc-800 p-2">
         <p className="p-2 font-semibold text-white md:text-xl lg:text-2xl">
-          Frequently Asked Questions
+          <span className="bg-yellow-300 px-2 py-1 text-black rounded-sm">FAQs</span>
         </p>
-        <div className="m-2 flex flex-col gap-1">
+        <div className="m-1 flex flex-col gap-1">
           {faq.map((f, i) => (
             <HeadlessDisclosure
               key={i}

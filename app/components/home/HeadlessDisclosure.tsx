@@ -14,7 +14,7 @@ const HeadlessDisclosure: React.FC<DisclosureProps> = ({
     <Disclosure>
       {({ open }) => (
         <>
-          <Disclosure.Button className="md:text-md flex w-full justify-between rounded-lg bg-zinc-50 px-4 py-2 text-left text-sm font-medium text-zinc-900 shadow-lg transition duration-300 hover:bg-[#e19233] focus:outline-none focus-visible:ring focus-visible:ring-zinc-500 focus-visible:ring-opacity-75 lg:text-xl">
+          <Disclosure.Button className="md:text-md flex w-full justify-between rounded-lg bg-zinc-50 px-4 py-2 text-left text-sm font-medium text-zinc-900 shadow-lg transition duration-300 hover:bg-yellow-300 focus:outline-none focus-visible:ring focus-visible:ring-zinc-500 focus-visible:ring-opacity-75 lg:text-xl">
             <span>{question}</span>
             <BiChevronDownSquare
               className={`${

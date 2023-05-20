@@ -33,7 +33,7 @@ const MyList: React.FC<MyListProps> = ({ animals }) => {
           </button>
         </div>
       ) : (
-        <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="sm:grid-cols-2lg:grid-cols-3 my-4 grid grid-cols-1 gap-6 xl:grid-cols-4">
           {animals?.map((animal) => (
             <AnimalCard key={animal.id} animal={animal} deleteBtn />
           ))}

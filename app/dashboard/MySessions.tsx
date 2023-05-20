@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Heading from "@/app/components/Heading";
 import AnimalCard from "@/app/find/animals/AnimalCard";
@@ -27,13 +27,13 @@ const MySessions: React.FC<MySessionsProps> = ({ sessionAnimals }) => {
             onClick={() => {
               router.push("/find/animals");
             }}
-            className="rounded-md duration-300 bg-zinc-800 p-4 text-white transition border-2 hover:border-zinc-800 hover:bg-transparent hover:text-zinc-800"
+            className="rounded-md border-2 bg-zinc-800 p-4 text-white transition duration-300 hover:border-zinc-800 hover:bg-transparent hover:text-zinc-800"
           >
             Find Animals
           </button>
         </div>
       ) : (
-        <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {sessionAnimals?.map((animal) => (
             <AnimalCard key={animal.id} animal={animal} cancelBtn />
           ))}
