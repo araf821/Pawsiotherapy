@@ -46,12 +46,12 @@ const DropDownMenu: React.FC<MenuProps> = ({ currentUser }) => {
         ref={menuBtnRef}
         onClick={toggleDropdown}
         className="flex cursor-pointer flex-row items-center gap-3
-      rounded-xl border-[3px] border-yellow-500 p-2 text-yellow-500 transition duration-300
+      rounded-xl border-[3px] border-yellow-500 p-2 text-yellow-500 transition duration-200
       hover:bg-yellow-500 hover:text-black hover:shadow-lg md:px-3"
       >
         <GiHamburgerMenu
           size={28}
-          className={`${isOpen && "rotate-180"} transition duration-300`}
+          className={`${isOpen && "rotate-180"} transition duration-200`}
         />
         <div className="hidden md:block">
           <Avatar src={currentUser?.image} />

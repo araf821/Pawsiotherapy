@@ -1,12 +1,10 @@
 "use client";
 
-import { Lilita_One } from "next/font/google";
 import Image from "next/image";
-import { ImQuotesRight } from "react-icons/im";
-import Button from "../Button";
 import { useRouter } from "next/navigation";
+import { Lilita_One } from "next/font/google";
 
-const pacifico = Lilita_One({
+const lilita = Lilita_One({
   weight: "400",
   subsets: ["latin"],
 });
@@ -20,7 +18,7 @@ const Hero = () => {
       <div className="flex w-full max-w-[1350px] flex-col items-center justify-between gap-8 px-4 sm:px-6 md:flex-row md:px-10 xl:px-20">
         {/* Text section */}
         <div
-          className={`flex flex-col items-center justify-center text-center text-5xl text-white sm:text-6xl md:items-start lg:text-7xl xl:text-8xl ${pacifico.className} `}
+          className={`flex select-none flex-col items-center justify-center text-center text-5xl text-white sm:text-6xl md:items-start lg:text-7xl xl:text-8xl ${lilita.className} `}
         >
           <p>Therapy</p>
           <p>Sessions</p>
@@ -42,7 +40,7 @@ const Hero = () => {
             fill
             src="/images/hero-bg.jpg"
             alt="blog background"
-            className="w-full transform object-cover duration-500 hover:scale-110"
+            className="w-full transform object-cover duration-500 hover:scale-125"
           />
         </div>
       </div>
