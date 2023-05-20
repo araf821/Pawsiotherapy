@@ -5,6 +5,8 @@ import MyList from "./MyList";
 import MySessions from "./MySessions";
 import Image from "next/image";
 import { Lilita_One } from "next/font/google";
+import { IoSettingsSharp } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const lilita = Lilita_One({
   weight: "400",
@@ -22,6 +24,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
   animals,
   sessionAnimals,
 }) => {
+  const router = useRouter();
   if (!currentUser) {
     return null;
   }
@@ -31,6 +34,16 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
       <div
         className={`relative my-8 flex items-start justify-normal gap-3 rounded-lg bg-zinc-800 p-4 text-yellow-300 shadow-2xl md:flex-row md:gap-8 ${lilita.className}`}
       >
+        {/* settings button */}
+        <div
+          onClick={() => {
+            router.push("/dashboard/settings");
+          }}
+          className="absolute right-0 top-0 m-2 md:m-4"
+        >
+          <IoSettingsSharp className="cursor-pointer text-2xl md:text-4xl" />
+        </div>
+
         <div className="relative h-[100px] max-h-[200px] w-[100px] max-w-[200px] md:h-[200px] md:w-full">
           <Image
             //@ts-ignore
