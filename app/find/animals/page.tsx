@@ -2,6 +2,12 @@ import Container from "@/app/components/Container";
 import getAnimals from "@/app/actions/getAnimals";
 import EmptyState from "@/app/components/EmptyState";
 import AnimalClient from "./AnimalClient";
+import { Lilita_One } from "next/font/google";
+
+const lilita = Lilita_One({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const AllAnimalsPage = async () => {
   let animals = await getAnimals();
@@ -20,7 +26,9 @@ const AllAnimalsPage = async () => {
   return (
     <Container>
       {/* Heading */}
-      <div className="mt-6 text-xl font-semibold md:text-2xl lg:text-3xl">
+      <div
+        className={`${lilita.className} mt-6 text-3xl font-semibold lg:text-4xl xl:text-5xl`}
+      >
         Find Animals Near You!
         <hr className="mt-2" />
       </div>

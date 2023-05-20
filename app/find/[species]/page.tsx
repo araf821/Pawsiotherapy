@@ -2,6 +2,12 @@ import getAnimalsBySpecies from "@/app/actions/getAnimalBySpecies";
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
 import AnimalClient from "../animals/AnimalClient";
+import { Lilita_One } from "next/font/google";
+
+const lilita = Lilita_One({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 interface IParams {
   species?: string;
@@ -25,7 +31,9 @@ const AnimalsBySpeciesPage = async ({ params }: { params: IParams }) => {
     <Container>
       {/* Heading */}
       <div className="mt-6">
-        <p className="text-xl font-semibold capitalize md:text-2xl lg:text-3xl">
+        <p
+          className={`${lilita.className} text-3xl font-semibold capitalize lg:text-4xl xl:text-5xl`}
+        >
           Find {params.species}s Near You!
         </p>
         <hr className="mt-2" />
