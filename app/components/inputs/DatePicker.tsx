@@ -18,7 +18,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
   currentUser,
   provider,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState("");
 
   const router = useRouter();
@@ -38,8 +37,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
   });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setIsLoading(true);
-
     axios
       .post("/api/sessions", {
         ...data,
@@ -51,9 +48,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
       })
       .catch(() => {
         toast.error("Something went wrong.");
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   };
 
@@ -84,7 +78,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       <div className="mt-6 w-full max-w-[600px]">
         <button
           onClick={handleSubmit(onSubmit)}
-          className="flex w-full max-w-[600px] items-center justify-center rounded-lg bg-white p-3 font-semibold tracking-wide outline-none transition duration-300 hover:scale-[1.03] hover:bg-yellow-200"
+          className="flex w-full max-w-[600px] items-center justify-center rounded-lg bg-white p-3 font-semibold tracking-wide outline-none transition hover:bg-yellow-300 active:-translate-y-2"
         >
           Submit
         </button>

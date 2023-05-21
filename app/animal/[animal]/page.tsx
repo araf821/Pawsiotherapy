@@ -4,6 +4,12 @@ import Image from "next/image";
 import BookingSection from "./BookingSection";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getUserById from "@/app/actions/getUserById";
+import { Lilita_One } from "next/font/google";
+
+const lilita = Lilita_One({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const dynamic = "force-dynamic";
 
@@ -33,63 +39,82 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
 
   return (
     <div className="mx-auto flex w-full max-w-[1250px] flex-col justify-center">
-      <div className="border-1 my-8 relative flex flex-col items-center justify-between gap-4 rounded-lg border-neutral-400 px-2 shadow-lg  md:flex-row md:gap-8 lg:gap-12 lg:px-0 xl:gap-16">
-        {/* Image */}
-        <div className="relative h-[300px] w-full overflow-hidden rounded-t-lg shadow-2xl sm:h-[400px] md:rounded-none lg:h-[500px] lg:rounded-l-lg">
-          <Image
-            alt={animalData.name}
-            src={animalData.image}
-            fill
-            className=" object-cover transition duration-500 hover:scale-110"
-          />
-        </div>
-        {/* Info */}
-        <div className=" flex w-full flex-col gap-3 p-3 capitalize sm:gap-4">
-          <p>
-            <span className="bg-zinc-800 px-2 py-1 text-xl font-semibold text-white md:text-2xl">
-              {animalData.name}
-            </span>
-          </p>
-          <p className="text-lg md:text-xl">
-            <span className="bg-zinc-800 px-2 py-1 text-white">
-              <span className="font-semibold">Species: </span>
-              {animalData.species}
-            </span>
-          </p>
-          <p className="text-lg md:text-xl">
-            <span className="bg-zinc-800 px-2 py-1 text-white">
-              <span className="font-semibold">Personality: </span>
-              {animalData.personality}
-            </span>
-          </p>
+      {/* Animal Info and Showcase */}
+      <div className="my-8 p-3 xl:p-0 ">
+        <div className="w-full">
+          {/* Name */}
+          <div
+            className={`${lilita.className} rounded-t-lg border-b-[1px] border-zinc-600 bg-zinc-800 py-2 text-center text-2xl text-white sm:text-3xl lg:text-4xl xl:text-5xl`}
+          >
+            {animalData.name}
+          </div>
 
-          <p className="text-lg md:text-xl">
-            <span className="bg-zinc-800 px-2 py-1 text-white">
-              <span className="font-semibold">Age: </span>
-              {animalData.age}
-            </span>
-          </p>
-          <p className="text-lg md:text-xl">
-            <span className="bg-zinc-800 px-2 py-1 text-white">
-              <span className="font-semibold">Breed: </span>
-              {animalData?.breed || "N/A"}
-            </span>
-          </p>
-          <p className="text-lg md:text-xl">
-            <span className="bg-zinc-800 px-2 py-1 text-white">
-              <span className="font-semibold">Located At: </span>
-              {animalData.location}
-            </span>
-          </p>
-          <p className="max-w-[700px] lg:max-w-[500px] overflow-hidden text-lg normal-case md:text-xl">
-            <span className="font-semibold">
-              <span className="bg-zinc-800 px-1 text-white">Bio:</span>
-            </span>{" "}
-            {animalData.description}
-          </p>
+          <div className="flex flex-col gap-4 md:flex-row">
+            {/* Image */}
+            <div className="relative h-[300px] w-full overflow-hidden shadow-md hover:shadow-2xl transition sm:h-[400px] lg:h-[500px]">
+              <Image
+                alt={animalData.name}
+                src={animalData.image}
+                fill
+                className=" object-cover transition duration-500 hover:scale-110"
+              />
+            </div>
+
+            {/* Info */}
+            <div className="flex w-full flex-col justify-center text-center gap-4 capitalize">
+              {/* Personality */}
+              <div className="">
+                <p className="text-sm font-semibold">PERSONALITY</p>
+                <p className="text-lg font-light md:text-xl">
+                  {animalData.personality}
+                </p>
+              </div>
+
+              {/* Species */}
+              <div className="">
+                <p className="text-sm font-semibold">SPECIES</p>
+                <p className="text-lg font-light md:text-xl">
+                  {animalData.species}
+                </p>
+              </div>
+
+              {/* Breed */}
+              <div className="">
+                <p className="text-sm font-semibold">BREED</p>
+                <p className="text-lg font-light md:text-xl">
+                  {animalData.breed === "" ? "N/A" : animalData.breed}
+                </p>
+              </div>
+
+              {/* Age */}
+              <div className="">
+                <p className="text-sm font-semibold">AGE</p>
+                <p className="text-lg font-light md:text-xl">
+                  {animalData.age} Years Old
+                </p>
+              </div>
+
+              {/* Location */}
+              <div className="">
+                <p className="text-sm font-semibold">LOCATION</p>
+                <p className="text-lg font-light md:text-xl">
+                  {animalData.location}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <hr className="my-4" />
+
+          {/* Bio */}
+          <div className="flex flex-col items-center">
+            <p className="text-sm font-semibold">BIO</p>
+            <p className="max-w-[700px] text-justify text-lg font-light md:text-center md:text-2xl lg:max-w-[900px]">
+              {animalData.description}
+            </p>
+          </div>
         </div>
       </div>
-      <hr />
 
       <BookingSection
         animalId={animalData.id}
