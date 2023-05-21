@@ -13,7 +13,7 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({ title, subtitle, center }) => {
   return (
-    <div className={`flex flex-col gap-2 ${center && "justify-center"}`}>
+    <div className={`flex flex-col gap-2 ${center && "items-center"}`}>
       <p
         className={`${lilita.className} text-3xl font-semibold capitalize lg:text-4xl xl:text-5xl`}
       >
