@@ -15,7 +15,7 @@ const BookingSection: React.FC<BookingProps> = ({
   animalName,
 }) => {
   return (
-    <div className="bg-zinc-800 p-2 xl:mb-10">
+    <div className="bg-zinc-800 xl:rounded-md p-2 xl:mb-10">
       <div className="flex flex-col gap-2 p-2 text-white">
         <p className="text-lg font-semibold md:text-2xl lg:text-4xl">
           <span className="transition hover:scale-95 hover:text-neutral-400">

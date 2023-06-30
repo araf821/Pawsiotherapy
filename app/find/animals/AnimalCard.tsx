@@ -70,7 +70,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({
           alt="animal card"
           src={animal.image}
           fill
-          className="h-full w-full overflow-hidden object-cover duration-1000 hover:scale-110"
+          className="h-full w-full overflow-hidden object-cover"
         />
       </div>
       {/* Info */}

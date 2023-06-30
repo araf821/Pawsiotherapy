@@ -51,17 +51,17 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
 
           <div className="flex flex-col gap-4 md:flex-row">
             {/* Image */}
-            <div className="relative h-[300px] w-full overflow-hidden shadow-md hover:shadow-2xl transition sm:h-[400px] lg:h-[500px]">
+            <div className="relative h-[300px] w-full overflow-hidden shadow-md transition duration-300 hover:shadow-2xl sm:h-[400px] lg:h-[500px]">
               <Image
                 alt={animalData.name}
                 src={animalData.image}
                 fill
-                className=" object-cover transition duration-500 hover:scale-110"
+                className=" object-cover"
               />
             </div>
 
             {/* Info */}
-            <div className="flex w-full flex-col justify-center text-center gap-4 capitalize">
+            <div className="flex w-full flex-col justify-center gap-4 text-center capitalize">
               {/* Personality */}
               <div className="">
                 <p className="text-sm font-semibold">PERSONALITY</p>
@@ -107,7 +107,7 @@ const SingleAnimalPage = async ({ params }: { params: IParams }) => {
           <hr className="my-4" />
 
           {/* Bio */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center contain-word">
             <p className="text-sm font-semibold">BIO</p>
             <p className="max-w-[700px] text-justify text-lg font-light md:text-center md:text-2xl lg:max-w-[900px]">
               {animalData.description}
