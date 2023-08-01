@@ -47,7 +47,3 @@ Our platform is built using the latest technologies to provide the best experien
 - We use MongoDB and Prisma for database integration, allowing us to easily store and manage data related to our platform. This combination allows us to provide a scalable and flexible database solution.
 
 - Our platform is deployed on Vercel, a popular cloud hosting provider that ensures fast and reliable deployment of our application.
-
-#### Future of Pawsiotherapy
-
-Updates are rolling out almost daily!
